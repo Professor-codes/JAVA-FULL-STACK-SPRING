@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean id="userBean" class="com.bean.UserBean">
+		<property name="id" value="1"></property>
+		<property name="name" value="max"></property>
+		<property name="email" value="maxit@gmail.com"></property>
+		<property name="password" value="dt$d458nvd439fyg"></property>
+		<property name="addressBean" ref="addressBea"></property>
+	</bean>
+	
+	<bean id="addressBea" class="com.bean.AddressBean">
+		<property name="street" value="666"></property>
+		<property name="city" value="Alameda"></property>
+		<property name="state" value="California"></property>
+		<property name="zipcode" value="104739"></property>
+	</bean>
+	
+</beans>
