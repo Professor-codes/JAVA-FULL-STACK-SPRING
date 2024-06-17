@@ -10,7 +10,8 @@ public class UserBean {
 	private AddressBean addressBean;
 	
 	public UserBean() {
-		// default contructor
+		// default constructor 
+		// for dependency injection using getters and setters
 	}
 
 	public int getId() {

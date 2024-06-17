@@ -10,10 +10,10 @@
 		<property name="name" value="max"></property>
 		<property name="email" value="maxit@gmail.com"></property>
 		<property name="password" value="dt$d458nvd439fyg"></property>
-		<property name="addressBean" ref="addressBea"></property>
+		<property name="addressBean" ref="addressBean"></property>
 	</bean>
 	
-	<bean id="addressBea" class="com.bean.AddressBean">
+	<bean id="addressBean" class="com.bean.AddressBean">
 		<property name="street" value="666"></property>
 		<property name="city" value="Alameda"></property>
 		<property name="state" value="California"></property>

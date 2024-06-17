@@ -10,12 +10,12 @@ public class App {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("dependencyinjection.xml");
 		// System.out.println(context);
 		
-        UserBean user = context.getBean("userBean", UserBean.class);
+        UserBean userBean = context.getBean("userBean", UserBean.class);
         
-        System.out.println(user.getId());
-        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
-        System.out.println(user.getAddressBean());
+        System.out.println(userBean.getId());
+        System.out.println(userBean.getName());
+        System.out.println(userBean.getEmail());
+        System.out.println(userBean.getPassword());
+        System.out.println(userBean.getAddressBean());
 	}
 }
