@@ -2,6 +2,7 @@ package com;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.bean.StudentBean;
 import com.bean.UserBean;
 
 /**
@@ -16,13 +17,25 @@ public class App {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		System.out.println(context);
 		
-		UserBean first = context.getBean("userBean", UserBean.class);
-		UserBean second = context.getBean("userBean", UserBean.class);
-		UserBean third = context.getBean("userBean", UserBean.class);
+		// singleton design pattern 
+		// create 1 object for all
+		UserBean u1 = context.getBean("userBean", UserBean.class);
+		UserBean u2 = context.getBean("userBean", UserBean.class);
+		UserBean u3 = context.getBean("userBean", UserBean.class);
 		
-		System.out.println(first);
-		System.out.println(second);
-		System.out.println(third);
+		System.out.println(u1);
+		System.out.println(u2);
+		System.out.println(u3);
+		
+		// prototype design pattern
+		// create 1 object for each
+		StudentBean s1 = context.getBean("studentBean", StudentBean.class);
+		StudentBean s2 = context.getBean("studentBean", StudentBean.class);
+		StudentBean s3 = context.getBean("studentBean", StudentBean.class);
+		
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
 		
 	}
 }
