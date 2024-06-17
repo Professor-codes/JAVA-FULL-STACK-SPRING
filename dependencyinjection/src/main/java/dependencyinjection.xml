@@ -10,7 +10,12 @@
 		<property name="name" value="max"></property>
 		<property name="email" value="maxit@gmail.com"></property>
 		<property name="password" value="dt$d458nvd439fyg"></property>
-		<property name="addressBean" ref="addressBean"></property>
+		
+		<!-- for dependency injection using getters and setters -->
+		<!-- <property name="addressBean" ref="addressBean"></property> -->
+		
+		<!-- for dependency injection using constructor -->
+		<constructor-arg ref="addressBean"></constructor-arg>
 	</bean>
 	
 	<bean id="addressBean" class="com.bean.AddressBean">

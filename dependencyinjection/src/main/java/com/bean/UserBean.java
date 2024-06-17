@@ -9,9 +9,16 @@ public class UserBean {
 	
 	private AddressBean addressBean;
 	
-	public UserBean() {
+	// public UserBean() {
 		// default constructor 
 		// for dependency injection using getters and setters
+	// }
+	
+	public UserBean(AddressBean addressBean) {
+		// parameterized constructor
+		// for dependency injection using constructor
+		
+		this.addressBean = addressBean;
 	}
 
 	public int getId() {

@@ -17,5 +17,6 @@ public class App {
         System.out.println(userBean.getEmail());
         System.out.println(userBean.getPassword());
         System.out.println(userBean.getAddressBean());
+        
 	}
 }
