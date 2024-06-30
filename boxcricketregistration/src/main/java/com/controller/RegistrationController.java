@@ -25,17 +25,52 @@ public class RegistrationController {
 
 		boolean isError = false;
 
+		// + : minimum 1 time and maximum n times
+		String alphabetRegex = "[a-zA-Z]+";
+
+		// validation of name
 		if (registrationBean.getName() == null || registrationBean.getName().trim().length() == 0) {
 			isError = true;
 			model.addAttribute("nameError", "Please enter your name!");
+		} 
+		// validation using regex for name
+		else if (registrationBean.getName().matches(alphabetRegex) == false) {
+			isError = true;
+			model.addAttribute("nameError", "Enter valid name!");
+		} 
+		// prefilled value save for name
+		else {
+			model.addAttribute("nameValue", registrationBean.getName());
 		}
+
+		// validation for playertype
 		if (registrationBean.getPlayertype() == null) {
 			isError = true;
 			model.addAttribute("playertypeError", "Please select type of player!");
+		} 
+		// prefilled value save for playertype
+		else {
+			model.addAttribute("playertypeValue", registrationBean.getPlayertype());
 		}
+
+		// validation for food
 		if (registrationBean.getFood().equals("-1")) {
 			isError = true;
-			model.addAttribute("foodError", "Please select food preference!");
+			model.addAttribute("foodError", "Select food to continue!");
+		} 
+		// prefilled value save for food
+		else {
+			model.addAttribute("foodValue", registrationBean.getFood());
+		}
+		
+		// validation for drink
+		if(registrationBean.getDrink()==null) {
+			isError=true;
+			model.addAttribute("drinkError", "Select drink to continue!");
+		}
+		// prefilled value save for drink
+		else {
+			model.addAttribute("drinkValue", registrationBean.getDrink());
 		}
 
 		if (isError == true) {
