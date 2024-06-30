@@ -12,7 +12,7 @@
 	<br>
 
 	<form action="registeruser" method="post">
-		Name : <input type="text" name="name" value="${nameValue}" />
+		Name : <input type="text" name="name" value="${registrationBean.name}" />
 		<p style="display: inline; color: red">${nameError}</p>
 		<br>
 		<br> 

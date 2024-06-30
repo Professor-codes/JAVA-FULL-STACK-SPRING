@@ -27,6 +27,9 @@ public class RegistrationController {
 
 		// + : minimum 1 time and maximum n times
 		String alphabetRegex = "[a-zA-Z]+";
+		
+		// common object for send data 
+		model.addAttribute("registrationBean", registrationBean);
 
 		// validation of name
 		if (registrationBean.getName() == null || registrationBean.getName().trim().length() == 0) {
@@ -40,7 +43,9 @@ public class RegistrationController {
 		} 
 		// prefilled value save for name
 		else {
-			model.addAttribute("nameValue", registrationBean.getName());
+			// model.addAttribute("nameValue", registrationBean.getName());
+			// write this insted of above while using common object
+			// ${registrationBean.name} 
 		}
 
 		// validation for playertype
@@ -73,6 +78,7 @@ public class RegistrationController {
 			model.addAttribute("drinkValue", registrationBean.getDrink());
 		}
 
+		
 		if (isError == true) {
 			return "registrationForm";
 		}
