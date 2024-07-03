@@ -10,5 +10,18 @@
 	<h1>Home Page</h1>
 	<hr>
 	<br>
+
+	<p>
+		Product Name : <b>${productBean.getProductName()}</b>
+	</p>
+	<p>
+		Product category : <b>${productBean.getProductCategory()}</b>
+	</p>
+	<p>
+		Product quantity : <b>${productBean.getProductQuantity()}</b>
+	</p>
+	<p>
+		Product price : <b>${productBean.getProductPrice()}</b>
+	</p>
 </body>
 </html>
