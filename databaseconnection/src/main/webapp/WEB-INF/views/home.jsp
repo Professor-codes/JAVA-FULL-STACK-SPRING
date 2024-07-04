@@ -11,6 +11,7 @@
 	<hr>
 	<br>
 
+	<!-- 
 	<p>
 		Product Name : <b>${productBean.getProductName()}</b>
 	</p>
@@ -23,5 +24,8 @@
 	<p>
 		Product price : <b>${productBean.getProductPrice()}</b>
 	</p>
+	 -->
+	 
+	 <h2>Data Successfully Added.</h2>
 </body>
 </html>
