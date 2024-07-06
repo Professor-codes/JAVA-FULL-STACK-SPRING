@@ -7,13 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.ProductBean;
 import com.dao.ProductDao;
 
 @Controller
 public class ProductController {
-	
+
 	@Autowired
 	ProductDao productDao;
 
@@ -77,20 +78,29 @@ public class ProductController {
 		}
 
 		productDao.addProduct(productBean);
-		
-		return "home";
+
+		// return url
+		// url for list product jsp
+		return "redirect:/productlist";
 	}
-	
+
 	@GetMapping("/productlist")
 	public String listProduct(Model model) {
-		
+
 		// get from product dao
-		List<ProductBean> products =  productDao.getProduct();
-		
+		List<ProductBean> products = productDao.getProduct();
+
 		// send data to list product jsp
 		model.addAttribute("products", products);
-		
+
 		return "listProduct";
 	}
-	
+
+	@GetMapping("/deleteproduct")
+	public String deleteProduct(@RequestParam("productId") Integer productId) {
+
+		System.out.println("deleteProduct() -> productId : " + productId);
+
+		return "redirect:/productlist";
+	}
 }

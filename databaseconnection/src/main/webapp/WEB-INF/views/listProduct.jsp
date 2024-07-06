@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,13 @@
 <body>
 	<h1>Product List</h1>
 	<hr>
+	<br>
+
+	<button>
+		<a href="addproduct" style="color: black; text-decoration: none;">Add
+			Product </a>
+	</button>
+	<br>
 	<br>
 
 	<%
@@ -24,14 +31,16 @@
 			<th>Category</th>
 			<th>Quantity</th>
 			<th>Price</th>
+			<th>Action</th>
 		</tr>
 
 		<%
 		for (ProductBean products : productData) {
 			out.print("<tr>");
 			out.print("<td>" + products.getProductName() + "</td><td>" + products.getProductCategory() + "</td><td>"
-			+ products.getProductQuantity() + "</td><td>" + products.getProductPrice() + "</td>");
-			out.print("</tr>");
+			+ products.getProductQuantity() + "</td><td>" + products.getProductPrice()
+			+ "</td><td><a href='deleteproduct?productId=" + products.getProductId() + "'>Delete</a></td>");
+			out.print("</tr>"); 
 		}
 		%>
 	</table>

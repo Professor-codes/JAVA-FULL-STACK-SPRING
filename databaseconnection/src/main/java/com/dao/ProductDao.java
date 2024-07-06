@@ -27,4 +27,8 @@ public class ProductDao {
 		
 		return productList;
 	}
+	
+	public void deleteProduct() {
+		
+	}
 }
