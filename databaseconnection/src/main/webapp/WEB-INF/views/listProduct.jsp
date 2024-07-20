@@ -18,6 +18,10 @@
 		<a href="addproduct" style="color: black; text-decoration: none;">Add
 			Product </a>
 	</button>
+	<button>
+		<a href=deleteproductbyname style="color: black; text-decoration: none;">Delete
+			Product </a>
+	</button>
 	<br>
 	<br>
 

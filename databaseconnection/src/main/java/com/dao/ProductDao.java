@@ -21,14 +21,24 @@ public class ProductDao {
 				productBean.getProductName(), productBean.getProductCategory(), productBean.getProductQuantity(),
 				productBean.getProductPrice());
 	}
-	
+
 	public List<ProductBean> getProduct() {
-		List<ProductBean> productList = jdbcTemplate.query("SELECT * FROM product", new BeanPropertyRowMapper<>(ProductBean.class));
-		
+		List<ProductBean> productList = jdbcTemplate.query("SELECT * FROM product",
+				new BeanPropertyRowMapper<>(ProductBean.class));
+
 		return productList;
 	}
-	
-	public void deleteProduct() {
+ 
+	public void deleteProduct(Integer productId) {
+		jdbcTemplate.update("DELETE FROM product WHERE productId = ?", productId);
+	}
+
+	public void deleteProductByName(String productName) {
+		jdbcTemplate.update("DELETE FROM product WHERE productName = ?", productName);
 		
 	}
+	
+	
+	
+	
 }

@@ -100,7 +100,26 @@ public class ProductController {
 	public String deleteProduct(@RequestParam("productId") Integer productId) {
 
 		System.out.println("deleteProduct() -> productId : " + productId);
+		
+		productDao.deleteProduct(productId); 
 
 		return "redirect:/productlist";
 	}
+	
+	@GetMapping("/deleteproductbyname")
+	public String deleteByProductName() {
+		
+		return "deleteProduct";
+	}
+	
+	@PostMapping("/deleteproductbyname")
+	public String deleteByProductName(@RequestParam("productName") String productName) {
+		
+		productDao.deleteProductByName(productName);
+		
+		return "redirect:/productlist";
+	}
+	
+	
+	
 }
