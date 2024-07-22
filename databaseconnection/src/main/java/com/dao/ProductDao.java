@@ -12,6 +12,14 @@ import com.bean.ProductBean;
 @Repository
 public class ProductDao {
 
+	// query : select
+	// use for n numbers of records
+
+	// update : insert update delete
+
+	// queryForObject : select
+	// use for exactly 1 record
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -28,17 +36,20 @@ public class ProductDao {
 
 		return productList;
 	}
- 
+
 	public void deleteProduct(Integer productId) {
 		jdbcTemplate.update("DELETE FROM product WHERE productId = ?", productId);
 	}
 
 	public void deleteProductByName(String productName) {
 		jdbcTemplate.update("DELETE FROM product WHERE productName = ?", productName);
-		
 	}
-	
-	
-	
-	
+
+	public ProductBean viewProduct(Integer productId) {
+		ProductBean productBean = jdbcTemplate.queryForObject("SELECT * FROM product WHERE productId = ?",
+				new BeanPropertyRowMapper<>(ProductBean.class), new Object[] { productId });
+
+		return productBean;
+	}
+
 }

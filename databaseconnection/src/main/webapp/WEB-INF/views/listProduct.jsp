@@ -43,7 +43,7 @@
 			out.print("<tr>");
 			out.print("<td>" + products.getProductName() + "</td><td>" + products.getProductCategory() + "</td><td>"
 			+ products.getProductQuantity() + "</td><td>" + products.getProductPrice()
-			+ "</td><td><a href='deleteproduct?productId=" + products.getProductId() + "'>Delete</a></td>");
+			+ "</td><td><a href='deleteproduct?productId=" + products.getProductId() + "'>Delete</a> | <a href='viewproduct?productId=" + products.getProductId() + "'>View</a></td>");
 			out.print("</tr>"); 
 		}
 		%>
