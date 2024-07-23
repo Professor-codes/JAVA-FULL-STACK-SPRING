@@ -11,7 +11,7 @@
 <hr>
 <br>
 
-<form action="saveproduct" method="post">
+<form action="saveproduct" method="post" enctype="multipart/form-data">
 	Product name : <input type="text" name="productName" value="${productBean.getProductName()}"/>
 	<span style="color:red">${productNameError}</span>
 	<br>
@@ -26,6 +26,9 @@
 	<br>
 	Product price : <input type="text" name="productPrice" value="${productBean.getProductPrice()}"/>
 	<span style="color:red">${productPriceError}</span>
+	<br>
+	<br>
+	Product image : <input type="file" name="productImage"/>
 	<br>
 	<br>
 	

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.ProductBean;
 import com.dao.ProductDao;
@@ -17,6 +18,11 @@ public class ProductController {
 
 	@Autowired
 	ProductDao productDao;
+	
+	@GetMapping("/")
+	public String openProject() {
+		return "home";
+	}
 
 	@GetMapping("/addproduct")
 	public String addProductPage() {
@@ -24,7 +30,7 @@ public class ProductController {
 	}
 
 	@PostMapping("/saveproduct")
-	public String saveProduct(ProductBean productBean, Model model) {
+	public String saveProduct(@RequestParam("productImage") MultipartFile productImage, ProductBean productBean, Model model) {
 
 		boolean isError = false;
 
@@ -76,6 +82,12 @@ public class ProductController {
 		} else {
 			// model.addAttribute("productPriceValue", productBean.getProductPrice());
 		}
+		
+		// IMAGE
+		System.out.println("Product added > " + productImage.getOriginalFilename());
+		
+		// save image using folder or cloud
+		
 
 		productDao.addProduct(productBean);
 
