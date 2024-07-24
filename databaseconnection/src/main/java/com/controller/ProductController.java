@@ -1,7 +1,9 @@
 package com.controller;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.ProductBean;
 import com.dao.ProductDao;
+import com.service.ImageUploadService;
 
 @Controller
 public class ProductController {
@@ -19,6 +22,9 @@ public class ProductController {
 	@Autowired
 	ProductDao productDao;
 	
+	@Autowired
+	ImageUploadService imageUploadService;
+
 	@GetMapping("/")
 	public String openProject() {
 		return "home";
@@ -30,7 +36,8 @@ public class ProductController {
 	}
 
 	@PostMapping("/saveproduct")
-	public String saveProduct(@RequestParam("productImage") MultipartFile productImage, ProductBean productBean, Model model) {
+	public String saveProduct(@RequestParam("productImage") MultipartFile productImage, ProductBean productBean,
+			Model model) {
 
 		boolean isError = false;
 
@@ -84,10 +91,7 @@ public class ProductController {
 		}
 		
 		// IMAGE
-		System.out.println("Product added > " + productImage.getOriginalFilename());
-		
-		// save image using folder or cloud
-		
+		imageUploadService.uploadProductImage(productImage);
 
 		productDao.addProduct(productBean);
 
