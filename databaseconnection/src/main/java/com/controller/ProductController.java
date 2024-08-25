@@ -46,7 +46,7 @@ public class ProductController {
 		String productQuantityRegex = "[0-9]+";
 		String productPriceRegex = "[0-9]+";
 
-		model.addAttribute("productBean", productBean);
+		model.addAttribute("productBean", productBean); 
 
 		// validation
 		if (productBean.getProductName() == null || productBean.getProductName().trim().length() == 0) {
@@ -97,7 +97,7 @@ public class ProductController {
 
 		// return url
 		// url for list product jsp
-		return "redirect:/productlist";
+		return "redirect:/productlist"; 
 	}
 
 	@GetMapping("/productlist")

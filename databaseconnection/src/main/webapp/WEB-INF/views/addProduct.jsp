@@ -33,6 +33,7 @@
 	<br>
 	
 	<input type="submit" value="Add Product" />
+	
 </form>
 
 </body>

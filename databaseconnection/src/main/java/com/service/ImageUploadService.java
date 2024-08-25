@@ -9,24 +9,24 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class ImageUploadService {
 
-    public void uploadProductImage(MultipartFile productImage) {
+	public void uploadProductImage(MultipartFile productImage) {
 
-        // IMAGE
-        System.out.println("Product added > " + productImage.getOriginalFilename());
+		// IMAGE
+		System.out.println("Product added > " + productImage.getOriginalFilename());
 
-        // save image using folder or cloud
-        String path = "D:\\spring-repo\\databaseconnection\\src\\main\\resources\\static\\image";
+		// save image using folder or cloud
+		String path = "C:\\Users\\sahil\\sts-spring-workspace\\databaseconnection\\src\\main\\resources\\static\\image";
 
-        try {
-            byte b[] = productImage.getBytes();
+		try {
+			byte b[] = productImage.getBytes();
 
-            File file = new File(path, productImage.getOriginalFilename()); // file path, file name
+			File file = new File(path, productImage.getOriginalFilename()); // file path, file name
 
-            FileUtils.writeByteArrayToFile(file, b);
+			FileUtils.writeByteArrayToFile(file, b);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}  
 
 }

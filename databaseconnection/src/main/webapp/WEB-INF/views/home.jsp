@@ -119,6 +119,9 @@ a {
 						<a href="#">Signup</a>
 					</button>
 					<button class="button btn-2">
+						<a href="#">Login</a>
+					</button>
+					<button class="button btn-2">
 						<a href="addproduct">Add product</a>
 					</button>
 					<button class="button btn-3">
